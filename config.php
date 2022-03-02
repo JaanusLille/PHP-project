@@ -12,3 +12,7 @@
 	    die("Connection failed: " . $conn->connect_error);
 	}
 ?>
+
+<!-- test-user data: 
+username = "testuser1@test.ee"
+password = "testuser1" -->
