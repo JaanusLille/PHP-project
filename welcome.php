@@ -2,7 +2,7 @@
 include('config.php');
 session_start();
     if(!isset($_SESSION['user'])){  
-        header("Location:login.php");
+        header("Location:index.php");
     }else{
         $email=$_SESSION['user'];
         $query=mysqli_query($conn,"select * from user where email='$email'");
@@ -10,7 +10,7 @@ session_start();
         if($_SESSION['user'] == $row['email']){
 
         }else{
-            header("Location:login.php");
+            header("Location:index.php");
         }
     }
 ?>

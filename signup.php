@@ -33,7 +33,7 @@
 
 			mysqli_query($conn, $query);
 
-			header("Location: login.php");
+			header("Location: index.php");
 			die;
 		}else{
 			echo "Please enter some valid information!";
@@ -64,7 +64,7 @@
 			<input type="password" name="password" placeholder="password" required="" /><br><br>
 				
 			<button type="submit" style="width:auto;">Signup</button><br><br>
-            <a href="login.php" style="width:auto;">to Login</a>
+            <a href="index.php" style="width:auto;">to Login</a>
 		</div>
 	</form>
 	</div>

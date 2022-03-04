@@ -13,8 +13,8 @@
 
 		<div class="container">
             <h1>Wrong username and/or password!</h1><br><br>
-			<!-- <button href="login.php" type="submit" style="width:auto;">Back</button><br><br> -->
-			<a href="login.php" style="width:auto;">Back to Login</a><br><br>
+			<!-- <button href="index.php" type="submit" style="width:auto;">Back</button><br><br> -->
+			<a href="index.php" style="width:auto;">Back to Login</a><br><br>
 		</div>
 		
 	</form>
