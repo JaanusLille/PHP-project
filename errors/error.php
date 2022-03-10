@@ -12,9 +12,9 @@
 		<h2><span></span> Login</h2>
 
 		<div class="container">
-            <h1>This password has already been taken</h1><br><br>
+            <h1>Wrong username and/or password!</h1><br><br>
 			<!-- <button href="index.php" type="submit" style="width:auto;">Back</button><br><br> -->
-			<a href="signup.php" style="width:auto;">Back to Signup</a><br><br>
+			<a href="../index.php" style="width:auto;">Back to Login</a><br><br>
 		</div>
 		
 	</form>

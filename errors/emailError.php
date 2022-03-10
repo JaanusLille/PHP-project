@@ -14,7 +14,7 @@
 		<div class="container">
             <h1>This email already has an account registered</h1><br><br>
 			<!-- <button href="index.php" type="submit" style="width:auto;">Back</button><br><br> -->
-			<a href="signup.php" style="width:auto;">Back to Signup</a><br><br>
+			<a href="../signup.php" style="width:auto;">Back to Signup</a><br><br>
 		</div>
 		
 	</form>

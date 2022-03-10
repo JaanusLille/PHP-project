@@ -29,13 +29,13 @@
             $_SESSION['user']= $user['email'];
             header("location: welcome.php");   
      	}else{
-            header("location: error.php");
+            header("location: errors/error.php");
             // $error = "wrong username and/or password!";
             // print_r("wrong username and/or password!");
             // echo "wrong username and/or password!";
      	}
     }else{
-        header("location: error.php");	
+        header("location: errors/error.php");	
         // $error = "wrong username and/or password!";
         // print_r("wrong username and/or password!");
         // echo "wrong username and/or password!";

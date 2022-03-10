@@ -16,11 +16,11 @@
 		$noP=mysqli_num_rows($existingP);
 
 		if($noE > 0){
-			header("Location: emailError.php");
+			header("Location: errors/emailError.php");
 			die;
 		}
 		if($noP > 0){
-			header("Location: passwordError.php");
+			header("Location: errors/passwordError.php");
 			die;
 		}
 
