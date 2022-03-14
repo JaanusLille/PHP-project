@@ -19,7 +19,7 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-    <title>How to Add New Node in Dynamic Treeview using PHP Mysql Ajax</title>
+    <title>Tree Menu</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
@@ -52,7 +52,7 @@ session_start();
             <div class="form-group">
                 <input type="submit" name="action" id="action" value="Add" class="btn btn-info" />
             </div>
-        </form><br> 
+        </form>
 
         <form method="post" id="treeview_form_2">
             <div class="form-group">
@@ -61,6 +61,20 @@ session_start();
             </div>
             <div class="form-group">
                 <input type="submit" name="action" id="action" value="Delete" class="btn btn-info" />
+            </div>
+        </form>
+
+        <form method="post" id="treeview_form_3">
+            <div class="form-group">
+                <label>Select Old Category Name</label>
+                <select name="parent_category_3" id="parent_category_3" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <label>Enter New Category Name</label>
+                <input type="text" name="category_name_2" id="category_name_2" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="submit" name="action" id="action" value="Update" class="btn btn-info" />
             </div>
         </form>
 
@@ -80,6 +94,7 @@ $(document).ready(function(){
 
     fill_parent_category();
     fill_parent_category_2();
+    fill_parent_category_3();
     fill_treeview();
 
     function fill_treeview(){
@@ -99,7 +114,6 @@ $(document).ready(function(){
             url:'fill_parent_category.php',
             success:function(data){
                 $('#parent_category').html(data);
-                // $('#parent_category_2').html(data);
             }
         });
     }
@@ -108,8 +122,15 @@ $(document).ready(function(){
         $.ajax({
             url:'fill_parent_category.php',
             success:function(data){
-                // $('#parent_category').html(data);
                 $('#parent_category_2').html(data);
+            }
+        });
+    }
+    function fill_parent_category_3(){
+        $.ajax({
+            url:'fill_parent_category.php',
+            success:function(data){
+                $('#parent_category_3').html(data);
             }
         });
     }
@@ -124,6 +145,8 @@ $(document).ready(function(){
             success:function(data){
                 fill_treeview();
                 fill_parent_category();
+                fill_parent_category_2();
+                fill_parent_category_3();
                 $('#treeview_form')[0].reset();
                 alert(data);
             }
@@ -140,38 +163,33 @@ $(document).ready(function(){
             data:$(this).serialize(),
             success:function(data){
                 fill_treeview();
+                fill_parent_category();
                 fill_parent_category_2();
+                fill_parent_category_3();
                 $('#treeview_form_2')[0].reset();
                 alert(data);
             }
         })
     });
 
-    // function deletedata(id){
-    //     $(document).ready(function(){
-    //         $.ajax({
-    //             // Action
-    //             url: 'delete.php',
-    //             // Method
-    //             type: 'POST',
-    //             data: {
-    //                 // Get value
-    //                 id: id,
-    //                 action: "delete"
-    //             },
-    //             success:function(response){
-    //                 // Response is the output of action file
-    //                 if(response == 1){
-    //                     alert("Data Deleted Successfully");
-    //                     document.getElementById(id).style.display = "none";
-    //                 }
-    //                 else if(response == 0){
-    //                     alert("Data Cannot Be Deleted");
-    //                 }
-    //             }
-    //         });
-    //     });
-    // }
+    $('#treeview_form_3').on('submit', function(event){
+        // gives out category_id
+        event.preventDefault();
+        console.log( $( this ).serialize() );
+        $.ajax({
+            url: 'update.php',
+            method:"POST",
+            data:$(this).serialize(),
+            success:function(data){
+                fill_treeview();
+                fill_parent_category();
+                fill_parent_category_2();
+                fill_parent_category_3();
+                $('#treeview_form_3')[0].reset();
+                alert(data);
+            }
+        })
+    });
 
 });
 </script>

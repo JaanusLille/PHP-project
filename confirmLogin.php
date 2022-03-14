@@ -8,22 +8,21 @@
 	$email=$_POST['email'];
 	$password=$_POST['password'];
     $remember = $_POST['remember'];
-    $password = hash('sha1', $password);
+    // siin hash-itakse: 
+    $hashedPassword = hash('sha1', $password);
 	$q=mysqli_query($conn,"SELECT * FROM `user` where `email`='$email' AND
-        `password`='$password' ") or die(mysqli_error());
+        `password`='$hashedPassword' ") or die(mysqli_error());
 
 	$user=mysqli_fetch_array($q);
 	$no=mysqli_num_rows($q);
 
-    // $password = hash('sha1', $password);
-
 	if($no == 1){
-        // $password = hash('sha1', $password);
-    	if($user['email'] == $email AND $user['password'] == $password){
+    	if($user['email'] == $email AND $user['password'] == $hashedPassword){
             if($remember == 'true'){
                 // cookie variable
+                $plainPassword=$_POST['password'];
                 setcookie('user_name', $email, $expiry);
-                setcookie('user_pass', $password, $expiry);
+                setcookie('user_pass', $plainPassword, $expiry);
             }
 
             $_SESSION['user']= $user['email'];

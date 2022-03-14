@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2022 at 12:14 PM
+-- Generation Time: Mar 12, 2022 at 01:38 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -39,12 +39,14 @@ CREATE TABLE `tbl_category` (
 
 INSERT INTO `tbl_category` (`category_id`, `category_name`, `parent_category_id`) VALUES
 (2, 'Chemicals', 0),
-(11, 'Apple', 0),
-(17, 'ApplePie', 11),
-(18, 'AppleSoda', 11),
-(19, 'AppleToaster', 11),
 (48, 'Salt', 2),
-(50, 'Sugar', 48);
+(50, 'Sugar', 48),
+(51, 'Gluckose', 2),
+(56, 'Zacharine_2', 50),
+(59, 'Zacharine', 50),
+(60, 'Computers', 0),
+(62, 'Apple', 60),
+(63, 'Microsoft', 60);
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `tbl_category`
 --
 ALTER TABLE `tbl_category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `user`
